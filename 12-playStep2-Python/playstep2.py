@@ -35,4 +35,39 @@
 
 def playstep2(hand, dice):
 	# your code goes here
-	pass
+	a,b,c=handtodice(hand)
+	dice1=dice
+	if(a!=b and b!=c and c!=a):
+		h1=a
+		h2=dice1%10
+		dice1=dice1//10
+		h3=dice1%10
+		dice1=dice1//10
+		h=dicetoorderedhand(h1,h2,h3)
+		return(h,dice1)
+	if(b==c):
+		h2=b
+		h3=c
+		h1=dice%10
+		dice=dice//10
+		h=dicetoorderedhand(h1,h2,h3)
+		return(h,dice)
+
+
+def handtodice(hand):
+	# your code goes here
+	th=hand%10
+	hand=hand//10
+	t=hand%10
+	hand=hand//10
+	o=hand%10
+	return((o,t,th))
+
+def dicetoorderedhand(a, b, c):
+	# your code goes here
+	arr=[]
+	arr.append(a)
+	arr.append(b)
+	arr.append(c)
+	arr.sort()
+	return((arr[2]*100)+(arr[1]*10)+(arr[0]))
