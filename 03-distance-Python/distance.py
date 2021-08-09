@@ -6,4 +6,10 @@
 
 def fun_distance(x1, y1, x2, y2):
 	# your code goes here
-	return 0
+	x=(abs(x1-x2)**2)
+	y=(abs(y1-y2)**2)
+	d1=round(((x+y)**0.5))
+	d2=(((x+y)**0.5))
+	if(d1>d2):
+		return (d1-1)
+	return d1
