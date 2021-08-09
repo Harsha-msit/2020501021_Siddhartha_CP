@@ -13,4 +13,3 @@ def handtodice(hand):
 	hand=hand//10
 	o=hand%10
 	return((o,t,th))
-	pass
