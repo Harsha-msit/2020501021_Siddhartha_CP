@@ -7,4 +7,10 @@
 
 def handtodice(hand):
 	# your code goes here
+	th=hand%10
+	hand=hand//10
+	t=hand%10
+	hand=hand//10
+	o=hand%10
+	return((o,t,th))
 	pass
