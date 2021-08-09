@@ -12,4 +12,10 @@
 
 def dicetoorderedhand(a, b, c):
 	# your code goes here
-	pass
+	arr=[]
+	arr.append(a)
+	arr.append(b)
+	arr.append(c)
+	arr.sort()
+	return((arr[2]*100)+(arr[1]*10)+(arr[0]))
+
