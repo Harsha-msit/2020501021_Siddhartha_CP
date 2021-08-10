@@ -7,5 +7,19 @@
 
 
 def fun_set_kth_digit(n, k, d):
-		return 0
-
+	a=[]
+	x=abs(n)
+	while(x>0):
+		r=x%10
+		a.append(r)
+		x=x//10
+	if(k>=len(a)):
+		a.append(d)
+	else:
+		a[k]=d
+	o=0
+	for i in range(len(a)):
+		o+=a[i]*(10**i)
+	if(n<0):
+		o=o*-1
+	return o
