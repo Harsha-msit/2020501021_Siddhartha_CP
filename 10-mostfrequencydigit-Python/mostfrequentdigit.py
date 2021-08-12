@@ -4,4 +4,20 @@
 
 def mostfrequentdigit(n):
 	# your code goes here
-	pass
+	mc=1
+	o=0
+	for i in range(9, -1, -1):
+		c=countOccurrences(n, i)
+		if(c>=mc):
+			mc=c
+			o=i
+	return o
+
+
+def countOccurrences(n, i): 
+    c = 0               
+    while (n):            
+        if ((n%10)==i): 
+            c=c+1 
+        n = int(n/10)    
+    return c
