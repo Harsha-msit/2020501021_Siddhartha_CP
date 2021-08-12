@@ -7,4 +7,15 @@
 
 def isrighttriangle(x1, y1, x2, y2, x3, y3):
 	# your code goes here
-	pass
+	d1=distsq(x1, y1, x2, y2)
+	d2=distsq(x2, y2, x3, y3)
+	d3=distsq(x3, y3, x1, y1)
+	if((d1+d2==d3) or (d2+d3==d1) or (d3+d1==d2)):
+		return True
+	return False
+
+def distsq(x1,y1,x2,y2):
+	x=(x2-x1)**2
+	y=(y2-y1)**2
+	d=x+y
+	return d
