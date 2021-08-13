@@ -5,4 +5,21 @@
 
 def isperfectsquare(n):
 	# your code goes here
-	pass
+	if(type(n)==str):
+		if(n.isnumeric()):
+			n=int(n)
+	if(type(n)!=int or n<0):
+		return False
+	if(n==1 or n==4):
+		return True
+	l=2
+	h=(n//2)+1
+	while(l<=h):
+		m=l+((h-l)//2)
+		if(m*m==n):
+			return True
+		if(m*m>n):
+			h=m-1
+		elif(m*m<n):
+			l=m+1
+	return False
