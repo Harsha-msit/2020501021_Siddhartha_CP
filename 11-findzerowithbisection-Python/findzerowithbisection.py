@@ -9,3 +9,19 @@ def findzerowithbisection(x, epsilon):
 	# don't change these values
 	# epsilon
 	# your code starts here
+	l=1
+	r=x
+	while(l<r):
+		m=(l+r)/2.0
+		s=m*m
+		if((s-x)>0 and (s-x)<=epsilon):
+			return m
+		elif((s-x)>epsilon):
+			r=m
+		elif((s-x)<epsilon):
+			l=m
+
+# def almEq(a,b):
+# 	if(abs(a-b)<10**-14):
+# 		return True
+# 	return False
