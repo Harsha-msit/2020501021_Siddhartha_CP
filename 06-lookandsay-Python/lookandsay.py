@@ -11,4 +11,24 @@
 
 def lookandsay(a):
 	# Your code goes here
-	pass
+	if(a==[]):
+		return []
+	i=0
+	arr=[]
+	c=1
+	if(len(set(a))==1):
+		return([(len(a),a[0])])
+	while(i<len(a)-1):
+		if(a[i]==a[i+1]):
+			c+=1
+		else:
+			arr.append((c,a[i]))
+			c=1
+		i+=1
+	if(a[-1]!=a[-2]):
+		arr.append((1,a[-1]))
+	elif(a[-1]==a[-2]):
+		arr.append((c,a[-1]))
+
+	return arr
+
