@@ -8,7 +8,20 @@
 
 def multiplyPolynomials(p1, p2):
     # Your code goes here...
-    pass
+    m=len(p1)
+    n=len(p2)
+    res=[0]*(m+n-1)
+    for i in range(m):
+        for j in range(n):
+            res[i+j]+=p1[i]*p2[j]
+    return res
+
+p1=[2,0,3]
+p2=[4,5]
+p11=[1,2,3,4]
+p21=[5,6,7,8]
 
 # Write your own test cases
+assert(multiplyPolynomials(p1,p2)==[8, 10, 12, 15])
+assert(multiplyPolynomials(p11,p21)==[5, 16, 34, 60, 61, 52, 32])
 print ("All test cases passwed...")
