@@ -15,8 +15,6 @@ def nthlychrelnumbers(n):
 			found+=1
 	return guess
 
-
-
 def islychrel(n):
 	mit=23
 	if(n==98):
@@ -26,6 +24,7 @@ def islychrel(n):
 		if(n==rev(n)):
 			return False
 	return True
+
 def rev(n):
 	reverse = 0
 	while (n > 0):
@@ -33,6 +32,3 @@ def rev(n):
 		reverse = (reverse * 10) + remainder
 		n = int(n / 10)
 	return reverse
-
-
-print(islychrel(98))
