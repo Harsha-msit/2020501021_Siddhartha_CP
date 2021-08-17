@@ -32,6 +32,7 @@
 
 # 3. If the calculated row position is -1 & calculated 
 # column position is n, the new position would be: (0, n-2). 
+# Reference : https://www.geeksforgeeks.org/magic-square/
 
 def makeMagicSquare(n):
     # Your code goes here...
