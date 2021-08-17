@@ -14,6 +14,33 @@
 # assert(nth_happy_number(7) == 28)
 # assert(nth_happy_number(8) == 31)
 
+def numSquareSum(n): 
+	squareSum = 0
+	while(n): 
+		squareSum += (n % 10) * (n % 10)
+		n = int(n / 10)
+	return squareSum
+
+def ishappynumber(n):
+	# your code goes here
+	slow = n
+	fast = n
+	if(n==1):
+		return True
+	while(True):  
+		slow = numSquareSum(slow)
+		fast = numSquareSum(numSquareSum(fast))
+		if(slow != fast): 
+			continue
+		else: 
+			break
+	return (slow == 1)
 
 def nth_happy_number(n):
-	return 0
+	found = 1
+	guess = 0
+	while(found<=n):
+		guess+=1
+		if(ishappynumber(guess)):
+			found+=1
+	return guess
