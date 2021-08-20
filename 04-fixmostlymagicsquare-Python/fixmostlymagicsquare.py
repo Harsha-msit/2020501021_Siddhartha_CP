@@ -24,7 +24,7 @@ def fixmostlymagicsquare(L):
 	c=probcol(csl)
 	v=valchange(csl)
 	L[r][c]-=v
-	
+
 	return L
 
 def getCount(a,v):
@@ -53,6 +53,3 @@ def probcol(a):
 		x=getCount(a,a[i])
 		if(x==1):
 			return i
-
-print(fixmostlymagicsquare([[2, 7, 9], [9, 5, 1], [4, 3, 8]]))
-print(fixmostlymagicsquare([[16, 3, 2, 13], [5, 10, 11, 18], [9, 6, 7, 12],[4, 15, 14, 1]]))
