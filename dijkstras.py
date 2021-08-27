@@ -1,6 +1,7 @@
 # Write a program that finds the shortest path from a source 
 # vertex (0) to all other vertices. Following is a sample 
 # input and output files.
+# Reference : https://www.geeksforgeeks.org/python-program-for-dijkstras-shortest-path-algorithm-greedy-algo-7/
 
 # Sample Input:
 # 8
