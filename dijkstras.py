@@ -32,36 +32,102 @@
 #  0 to 6 (1.51)  0->2  0.26   2->7  0.34   7->3  0.39   3->6  0.52
 #  0 to 7 (0.60)  0->2  0.26   2->7  0.34
 
-import sys
+class Node:
+    def __init__(self, key):
+        self.left = None
+        self.right = None
+        self.val = key
+def insert(root,key):
+    if key is None:
+        pass
+    elif root is None:
+        return Node(key)
+    else:
+        if root.val == key:
+            return root
+        if root.val < key:
+            root.right = insert(root.right, key)
+        elif root.val >= key:
+            root.left = insert(root.left,key)
+    return root
+def search(root,key):
+    flag = True
+    if root is None:
+        return False
+    elif root.val == key:
+        return True
+    elif root.val < key:
+        return search(root.right,key)
+    else:
+        return search(root.left,key)
+def delete(root,data):
+    # if root is None:
+    #     print("tree is empty")
+    #     return
+    if data < root.val:
+        if root.left:
+            root.left = delete(root.left,data)
+        else:
+            print(f"{data} is not available")
+    elif data > root.val:
+        if root.right:
+            root.right = delete(root.right,data)
+        else:
+            print(f"{data} is not available")
+    else:
+        if root.left is None:
+            temp = root.right
+            root = None
+            return temp
+        if root.right is None:
+            temp = root.right
+            root = None
+            return temp
+        node = root.right
+        while node.left:
+            node = node.left
+        root.val = node.val
+        root.right = delete(root.right,node.val)
+    return root
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.val)
+        inorder(root.right)
  
-class Graph():
+r = Node(50)
+delete(r,90)
+r = insert(r, 30)
+# print("for 30 root is",r)
+r = insert(r, 20)
+# print("for 20 root is",r.val)
+r = insert(r, 40)
+# print("for 40 root is",r.val)
+r = insert(r, 70)
+# print("for 70 root is",r.val)
+r = insert(r, 90)
  
-    def __init__(self, vertices):
-        self.V = vertices
-        self.graph = [[0 for column in range(vertices)]
-                      for row in range(vertices)]
+delete(r,70)
+delete(r,20)
+delete(r,30)
+delete(r,40)
+delete(r,50)
+print("root",r.val)
+# print("for 60 root is",r.val)
+# r = insert(r, 50)
+# print("for 50 root is",r.val)
+# r = insert(r, 50)
+# print("for 50 root is",r.val)
+# r = insert(r,2530)
+# print("for 230 root is",r.val)
  
-    def printSolution(self, dist):
-        print("Vertex tDistance from Source")
-        for node in range(self.V):
-            print(node, "t", dist[node])
-    def minDistance(self, dist, sptSet):
-        min = sys.maxsize
-        for v in range(self.V):
-            if dist[v] < min and sptSet[v] == False:
-                min = dist[v]
-                min_index = v 
-        return min_index
-    def dijkstra(self, src): 
-        dist = [sys.maxsize] * self.V
-        dist[src] = 0
-        sptSet = [False] * self.V 
-        for cout in range(self.V):
-            u = self.minDistance(dist, sptSet)
-            sptSet[u] = True
-            for v in range(self.V):
-                if self.graph[u][v] > 0 and sptSet[v] == False and dist[v] > dist[u] + self.graph[u][v]:
-                    dist[v] = dist[u] + self.graph[u][v] 
-        self.printSolution(dist)
+ 
+# # r=Node(7)
+# # r = insert(r,24)
+# # print(r.val)
+# print(search(r,2530))
+ 
+inorder(r)
+
 
 # Pleae go through the module resources which you can find in the week - 3 Day - 1
